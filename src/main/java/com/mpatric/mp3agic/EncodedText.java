@@ -14,17 +14,20 @@ public class EncodedText {
 	public static final byte TEXT_ENCODING_UTF_16 = 1;
 	public static final byte TEXT_ENCODING_UTF_16BE = 2;
 	public static final byte TEXT_ENCODING_UTF_8 = 3;
+	public static final byte TEXT_ENCODING_EUC_KR = 0;
 
 	public static final String CHARSET_ISO_8859_1 = "ISO-8859-1";
 	public static final String CHARSET_UTF_16 = "UTF-16LE";
 	public static final String CHARSET_UTF_16BE = "UTF-16BE";
 	public static final String CHARSET_UTF_8 = "UTF-8";
+	public static final String CHARSET_EUC_KR = "EUC-KR";
 
 	private static final String[] characterSets = {
 			CHARSET_ISO_8859_1,
 			CHARSET_UTF_16,
 			CHARSET_UTF_16BE,
-			CHARSET_UTF_8
+			CHARSET_UTF_8,
+			CHARSET_EUC_KR
 	};
 
 	private static final byte[] textEncodingFallback = {0, 2, 1, 3};
@@ -93,7 +96,7 @@ public class EncodedText {
 		} else if (value.length >= 3 && (value[0] == (byte) 0xef && value[1] == (byte) 0xbb && value[2] == (byte) 0xbf)) {
 			return TEXT_ENCODING_UTF_8;
 		} else {
-			return TEXT_ENCODING_ISO_8859_1;
+			return TEXT_ENCODING_EUC_KR;
 		}
 	}
 

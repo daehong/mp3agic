@@ -4,7 +4,7 @@ import java.io.UnsupportedEncodingException;
 
 public final class BufferTools {
 
-	protected static final String defaultCharsetName = "ISO-8859-1";
+	protected static final String defaultCharsetName = "EUC-KR";
 
 	private BufferTools() {}
 
