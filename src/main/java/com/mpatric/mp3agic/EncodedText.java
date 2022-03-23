@@ -23,11 +23,11 @@ public class EncodedText {
 	public static final String CHARSET_EUC_KR = "EUC-KR";
 
 	private static final String[] characterSets = {
-			CHARSET_ISO_8859_1,
+			CHARSET_EUC_KR,
 			CHARSET_UTF_16,
 			CHARSET_UTF_16BE,
 			CHARSET_UTF_8,
-			CHARSET_EUC_KR
+			CHARSET_ISO_8859_1
 	};
 
 	private static final byte[] textEncodingFallback = {0, 2, 1, 3};
