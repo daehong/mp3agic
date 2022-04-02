@@ -455,11 +455,14 @@ public class Mp3File extends FileWrapper {
 				byteBuffer.rewind();
 				saveFile.write(byteBuffer);
 			}
+			/*
 			if (hasId3v1Tag()) {
 				ByteBuffer byteBuffer = ByteBuffer.wrap(id3v1Tag.toBytes());
 				byteBuffer.rewind();
 				saveFile.write(byteBuffer);
 			}
+			 */
+
 			saveFile.close();
 		}
 	}
