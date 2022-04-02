@@ -26,11 +26,10 @@ public class EncodedText {
 			CHARSET_EUC_KR,
 			CHARSET_UTF_16,
 			CHARSET_UTF_16BE,
-			CHARSET_UTF_8,
-			CHARSET_ISO_8859_1
+			CHARSET_UTF_8
 	};
 
-	private static final byte[] textEncodingFallback = {0, 2, 1, 3};
+	private static final byte[] textEncodingFallback = {3, 2, 1, 0};
 
 	private static final byte[][] boms = {
 			{},
@@ -90,12 +89,16 @@ public class EncodedText {
 
 	private static byte textEncodingForBytesFromBOM(byte[] value) {
 		if (value.length >= 2 && value[0] == (byte) 0xff && value[1] == (byte) 0xfe) {
+			System.out.println("UTF16 리틀 인디안");
 			return TEXT_ENCODING_UTF_16;
 		} else if (value.length >= 2 && value[0] == (byte) 0xfe && value[1] == (byte) 0xff) {
+			System.out.println("UTF16 빅인디안");
 			return TEXT_ENCODING_UTF_16BE;
 		} else if (value.length >= 3 && (value[0] == (byte) 0xef && value[1] == (byte) 0xbb && value[2] == (byte) 0xbf)) {
+			System.out.println("UTF8 한글 설정");
 			return TEXT_ENCODING_UTF_8;
 		} else {
+			System.out.println("euc-KR 한글 설정");
 			return TEXT_ENCODING_EUC_KR;
 		}
 	}
