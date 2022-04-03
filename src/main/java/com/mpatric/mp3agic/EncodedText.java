@@ -89,16 +89,12 @@ public class EncodedText {
 
 	private static byte textEncodingForBytesFromBOM(byte[] value) {
 		if (value.length >= 2 && value[0] == (byte) 0xff && value[1] == (byte) 0xfe) {
-			System.out.println("UTF16 리틀 인디안");
 			return TEXT_ENCODING_UTF_16;
 		} else if (value.length >= 2 && value[0] == (byte) 0xfe && value[1] == (byte) 0xff) {
-			System.out.println("UTF16 빅인디안");
 			return TEXT_ENCODING_UTF_16BE;
 		} else if (value.length >= 3 && (value[0] == (byte) 0xef && value[1] == (byte) 0xbb && value[2] == (byte) 0xbf)) {
-			System.out.println("UTF8 한글 설정");
 			return TEXT_ENCODING_UTF_8;
 		} else {
-			System.out.println("euc-KR 한글 설정");
 			return TEXT_ENCODING_EUC_KR;
 		}
 	}
